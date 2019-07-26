@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean id="triangle" class="com.stackroute.spring.Spring_Inheritance.TriangleClass" init-method="myInit" destroy-method="myDestroy">
+        <constructor-arg index="0" value="equilateral"/>
+        <constructor-arg index="1" value="40"/>
+    </bean>
+    <bean id="PointParent" class="com.stackroute.spring.Spring_Inheritance.Point">
+        <property name="PointA" ref="PointA"/>
+
+    </bean>
+    <bean id="PointChild" class="com.stackroute.spring.Spring_Inheritance.Point" parent="PointParent">
+        <property name="PointB" ref="PointB"/>
+        <property name="PointC" ref="PointC"/>
+    </bean>
+
+    <!--creating one bean for calling displaybeanname class.....-->
+    <bean class="com.stackroute.spring.Spring_Inheritance.DisplayBeanName"></bean>
+
+    <bean id="PointA" class="com.stackroute.spring.Spring_Inheritance.XandYCordinates">
+        <property name="x" value="0"/>
+        <property name="y" value="0"/>
+    </bean>
+    <bean id="PointB" class="com.stackroute.spring.Spring_Inheritance.XandYCordinates">
+        <property name="x" value="0"/>
+        <property name="y" value="-20"/>
+    </bean>
+    <bean id="PointC" class="com.stackroute.spring.Spring_Inheritance.XandYCordinates">
+        <property name="x" value="-20"/>
+        <property name="y" value="0"/>
+    </bean>
+</beans>

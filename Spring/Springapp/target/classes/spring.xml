@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- bean definitions here -->
+<bean id="triangle" class="com.stackroute.spring.draw_triangle.Triangle">
+    <constructor-arg index="0" value="equilateral"/>
+    <constructor-arg index="1" value="40"/>
+</bean>
+    <bean id="Point" class="com.stackroute.spring.draw_triangle.Point">
+        <property name="PointA" ref="PointA"/>
+        <property name="PointB" ref="PointB"/>
+        <property name="PointC" ref="PointC"/>
+    </bean>
+    <bean id="PointA" class="com.stackroute.spring.draw_triangle.XandYCordinates">
+        <property name="x" value="0"/>
+        <property name="y" value="0"/>
+    </bean>
+    <bean id="PointB" class="com.stackroute.spring.draw_triangle.XandYCordinates">
+        <property name="x" value="0"/>
+        <property name="y" value="-20"/>
+    </bean>
+    <bean id="PointC" class="com.stackroute.spring.draw_triangle.XandYCordinates">
+        <property name="x" value="-20"/>
+        <property name="y" value="0"/>
+    </bean>
+
+    <!--triangle bean defination ends here....-->
+
+    <!--account bean defination here........-->
+    <bean id="acc" class="com.stackroute.spring.AccountPack.AccountVariables">
+    <constructor-arg index="0" value="400"/>
+    <constructor-arg index="1" value="khushbu"/>
+    </bean>
+
+
+    <bean id="account"  autowire="byType" class="com.stackroute.spring.AccountPack.Account"><!--these are autowiring ...-->
+
+    </bean>
+    <!--account bean defination ends here........-->
+
+</beans>
